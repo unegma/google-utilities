@@ -11,13 +11,19 @@ const GoogleIntegrationError = require('../lib/errors/GoogleIntegrationError');
 describe('Google Utilities Test', () => {
   let gUtilities;
   beforeEach(function() {
+    // gUtilities = new GoogleUtilities(
+    //     process.env.GOOGLE_CLIENT_SECRET,
+    //     process.env.GOOGLE_CLIENT_ID,
+    //     process.env.GOOGLE_REDIRECT_URI,
+    //     process.env.GOOGLE_ACCESS_TOKEN,
+    //     process.env.GOOGLE_REFRESH_TOKEN,
+    //     undefined, // if this is null, it will be null, if undefined, it will take the default value
+    //     process.env.SLACK_ERROR_LOG
+    // );
+
     gUtilities = new GoogleUtilities(
-        process.env.GOOGLE_CLIENT_SECRET,
-        process.env.GOOGLE_CLIENT_ID,
-        process.env.GOOGLE_REDIRECT_URI,
-        process.env.GOOGLE_ACCESS_TOKEN,
-        process.env.GOOGLE_REFRESH_TOKEN,
-        undefined, // if this is null, it will be null, if undefined, it will take the default value
+        process.env.GOOGLE_SERVICE_ACCOUNT,
+        process.env.GOOGLE_API_PRIVATE_KEY,
         process.env.SLACK_ERROR_LOG
     );
   });
