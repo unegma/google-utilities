@@ -38,7 +38,7 @@ describe('Google Utilities Test', () => {
   });
 
   it('should get a doc id', async () => {
-    let result = await gUtilities.getDoc();
+    let result = await gUtilities.getDoc(process.env.GOOGLE_TEST_DOC_ID);
     console.log(`The title of the document is: ${result.data.title}`);
   });
 
