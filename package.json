@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@unegma/error-handler": "^1.4.18",
+    "google-spreadsheet": "^3.0.13",
     "googleapis": "^62.0.0",
     "node-fetch": "^2.6.1"
   }
