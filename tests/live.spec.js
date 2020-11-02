@@ -49,14 +49,14 @@ describe('Google Utilities Test', () => {
     expect(error.message).to.equal('Error');
   });
 
-  it('should get a doc id', async () => {
-    let result = await gDocsUtilities.getDoc(process.env.GOOGLE_TEST_DOC_ID);
-    console.log(`The title of the document is: ${result.data.title}`);
+  it('should get a doc title', async () => {
+    let result = await gDocsUtilities.getDocTitle(process.env.GOOGLE_TEST_DOC_ID);
+    console.log(`The title of the document is: ${result}`);
   });
 
-  it('should get a doc id', async () => {
-    let result = await gDocsUtilities.getDoc(process.env.GOOGLE_TEST_DOC_ID);
-    console.log(`The title of the document is: ${result.data.title}`);
+  it('should get a doc body', async () => {
+    let result = await gDocsUtilities.getDocBody(process.env.GOOGLE_TEST_DOC_ID);
+    console.log(`${result}`);
   });
 
 });
