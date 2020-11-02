@@ -59,4 +59,14 @@ describe('Google Utilities Test', () => {
     console.log(`${result}`);
   });
 
+  // it('should write to a doc body', async () => {
+  //   let result = await gDocsUtilities.writeToDocBody(process.env.GOOGLE_TEST_DOC_ID);
+  //   console.log(`${result}`);
+  // });
+
+  it('should create a doc', async () => {
+    let result = await gDocsUtilities.createDoc(`TestDoc${Date.now()}`, 'This is the body', "unegma.com");
+    console.log(`Doc URL: ${result}`);
+  });
+
 });
