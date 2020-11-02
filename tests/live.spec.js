@@ -5,11 +5,11 @@ const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 require('dotenv').config();
 const nock = require('nock');
-const { GoogleUtilities } = require('../lib');
+const { GoogleUtilities, GoogleDocsUtilities } = require('../lib');
 const GoogleIntegrationError = require('../lib/errors/GoogleIntegrationError');
 
 describe('Google Utilities Test', () => {
-  let gUtilities;
+  let gUtilities; let gDocsUtilities;
   beforeEach(function() {
     // gUtilities = new GoogleUtilities(
     //     process.env.GOOGLE_CLIENT_SECRET,
@@ -22,6 +22,12 @@ describe('Google Utilities Test', () => {
     // );
 
     gUtilities = new GoogleUtilities(
+        process.env.GOOGLE_SERVICE_ACCOUNT,
+        process.env.GOOGLE_API_PRIVATE_KEY,
+        process.env.SLACK_ERROR_LOG
+    );
+
+    gDocsUtilities = new GoogleDocsUtilities(
         process.env.GOOGLE_SERVICE_ACCOUNT,
         process.env.GOOGLE_API_PRIVATE_KEY,
         process.env.SLACK_ERROR_LOG
@@ -44,9 +50,13 @@ describe('Google Utilities Test', () => {
   });
 
   it('should get a doc id', async () => {
-    let result = await gUtilities.getDoc(process.env.GOOGLE_TEST_DOC_ID);
+    let result = await gDocsUtilities.getDoc(process.env.GOOGLE_TEST_DOC_ID);
     console.log(`The title of the document is: ${result.data.title}`);
   });
 
+  it('should get a doc id', async () => {
+    let result = await gDocsUtilities.getDoc(process.env.GOOGLE_TEST_DOC_ID);
+    console.log(`The title of the document is: ${result.data.title}`);
+  });
 
 });
